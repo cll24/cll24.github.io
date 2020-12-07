@@ -140,6 +140,33 @@ layout: default
       <br />
       {% endif %} {% endfor %}
     </div>
+    
+    {% endif %} {% if site.show_author_paper_details == true %}
+    <div class="card">
+      <h1 class="card-title">Papers Details</h1>
+      <br />
+      {% for pap in site.author_paper_details %} {% if pap.visibility== true %}
+      <div class="row" id="project-card">
+        <!-- <div class="col-md-6">
+          <img
+            src="{{site.url}}{{site.baseurl}}/assets/img/{{project.project_thumbnail}}"
+            class="project-img"
+          />
+        </div> -->
+        <div class="col-md-12 center">
+          <h6 class="experience-title">{{ pap.papers_title }}</h6>
+          <p class="experience-info">{{ pap.papers_info}}</p>
+          <p class="experience-desc">{{ pap.papers_description }}</p>
+          <p>
+            <a class="project-link" href="{{project.project_url}}"
+              >{{ pap.papers_url}}</a
+            >
+          </p>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+
     {% endif %} {% if site.show_author_work_experiences == true %}
     <div class="card">
       <h1 class="card-title">Work Experience</h1>
@@ -169,7 +196,7 @@ layout: default
       {% for detail in site.author_education_details %} {% if detail.visibility
       == true %}
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-4">
           <img
             src="{{site.url}}{{site.baseurl}}/assets/img/{{ detail.college_logo}}"
             class="company-logo"
